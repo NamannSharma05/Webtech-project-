@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>BMI Calculator</title>
+
+<style>
+    body {
+        background-color: #90EE90;
+        font-family: Arial, sans-serif;
+    }
+    fieldset {
+        border: 2px solid #333;
+        padding: 20px;
+        max-width: 600px;
+        margin: auto;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+    }
+    legend {
+        text-align: center;
+        font-size: 60px;
+        font-weight: bold;
+    }
+    label {
+        font-size: 28px;
+    }
+    input[type="number"], input[type="text"] {
+        width: 220px;
+        height: 45px;
+        font-size: 18px;
+        margin: 5px;
+        padding-left: 10px;
+    }
+    button {
+        width: 140px;
+        height: 45px;
+        font-size: 18px;
+        margin: 10px;
+        cursor: pointer;
+        border-radius: 8px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+    }
+    button:hover {
+        background-color: #a07b45;
+    }
+</style>
+
+<script>
+function calculateBMI() {
+    var weight = document.getElementById("weight").value;
+    var height = document.getElementById("height").value;
+    var bmi = weight / (height * height);
+    document.getElementById("bmiResult").value = bmi.toFixed(2);
+}
+
+function clearFields() {
+    document.getElementById("weight").value = "";
+    document.getElementById("height").value = "";
+    document.getElementById("bmiResult").value = "";
+}
+</script>
+
+</head>
+
+<body>
+<fieldset>
+<legend>BMI</legend>
+<table align="center">
+    <tr>
+        <td><label>Weight (kg):</label></td>
+        <td colspan="2"><input type="number" id="weight" step="any"></td>
+    </tr>
+
+    <tr>
+        <td><label>Height (m):</label></td>
+        <td colspan="2"><input type="number" id="height" step="any"></td>
+    </tr>
+
+    <tr>
+        <td><label>BMI:</label></td>
+        <td colspan="2"><input type="text" id="bmiResult" readonly></td>
+    </tr>
+
+    <tr>
+        <td></td>
+        <td><button onclick="calculateBMI()">Calculate BMI</button></td>
+        <td><button onclick="clearFields()">Clear</button></td>
+    </tr>
+</table>
+</fieldset>
+</body>
+
+</html>
